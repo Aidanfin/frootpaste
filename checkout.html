@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Checkout | Frootpaste</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sniglet:wght@800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#79b22d",
+              "on-surface": "#1a1c1c",
+              "surface-container-low": "#f3f3f3",
+              "surface-container-lowest": "#ffffff"
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased">
+    <header class="fixed top-0 left-0 right-0 z-50 p-6 pointer-events-none">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="pointer-events-auto transition-transform hover:scale-105">
+                <div class="bg-white/80 backdrop-blur-md px-8 h-14 w-fit flex items-center justify-center rounded-full shadow-lg border border-primary/10">
+                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="70 45 260 85" class="h-[85%] w-auto">
+                        <defs>
+                            <style>
+                                .st0, .st1, .st2 { isolation: isolate; }
+                                .st0, .st2 { font-family: 'Sniglet', cursive; font-weight: 800; fill: #1a301a; }
+                                .st3 { fill: #79b22d; }
+                                .st4 { fill: #41b8ea; }
+                                .st2 { letter-spacing: -.02em; }
+                            </style>
+                        </defs>
+                        <g class="st1">
+                            <text class="st0" transform="translate(73.42 99.23)" font-size="44"><tspan x="0" y="0" xml:space="preserve">fr   </tspan></text>
+                            <text class="st2" transform="translate(173.54 99.23)" font-size="44"><tspan x="0" y="0">t</tspan></text>
+                            <text class="st0" transform="translate(199.66 99.23)" font-size="44"><tspan x="0" y="0">pas</tspan></text>
+                            <text class="st0" transform="translate(278.9 99.23)" font-size="44"><tspan x="0" y="0">t</tspan></text>
+                            <text class="st0" transform="translate(305.42 99.23)" font-size="44"><tspan x="0" y="0">e</tspan></text>
+                        </g>
+                        <rect class="st4" x="123.67" y="77.32" width="20.72" height="20.72" rx="4" ry="4" transform="translate(28.55 208.21) rotate(-82)"/>
+                        <rect class="st4" x="149.72" y="77.32" width="20.72" height="20.72" rx="4" ry="4" transform="translate(50.98 233.99) rotate(-82)"/>
+                        <path class="st3" d="M141.3,68.05h3.9v3.9c0,1.74-1.42,3.16-3.16,3.16h-1.53c-1.31,0-2.37-1.06-2.37-2.37v-1.53c0-1.74,1.42-3.16,3.16-3.16Z"/>
+                    </svg>
+                </div>
+            </a>
+            <div class="relative pointer-events-auto">
+                <button class="w-14 h-14 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-primary shadow-lg border border-primary/10 hover:scale-105 transition-transform" id="cart-icon-btn">
+                    <span class="material-symbols-outlined text-3xl">shopping_bag</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-black w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300" id="cart-badge">2</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-7 space-y-12">
+                <section class="space-y-8">
+                    <h2 class="text-4xl font-black tracking-tight text-on-surface">Shipping Details</h2>
+                    <div class="space-y-6">
+                        <div class="group">
+                            <label class="block text-sm font-bold mb-2 ml-4">Full Name</label>
+                            <input class="w-full bg-surface-container-low border-none rounded-full px-6 py-5" placeholder="Alex Rivera" type="text"/>
+                        </div>
+                        <div class="group">
+                            <label class="block text-sm font-bold mb-2 ml-4">Email Address</label>
+                            <input class="w-full bg-surface-container-low border-none rounded-full px-6 py-5" placeholder="alex@example.com" type="email"/>
+                        </div>
+                        <div class="group">
+                            <label class="block text-sm font-bold mb-2 ml-4">Address</label>
+                            <textarea class="w-full bg-surface-container-low border-none rounded-[2rem] px-6 py-5" placeholder="123 Orchard Lane" rows="3"></textarea>
+                        </div>
+                    </div>
+                </section>
+                <section class="space-y-8">
+                    <h2 class="text-4xl font-black tracking-tight text-on-surface">Payment</h2>
+                    <div class="bg-surface-container-low rounded-[2.5rem] p-8 space-y-6">
+                        <input class="w-full bg-white border-none rounded-full px-6 py-5" placeholder="Card Number" type="text"/>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input class="bg-white border-none rounded-full px-6 py-5" placeholder="MM/YY" type="text"/>
+                            <input class="bg-white border-none rounded-full px-6 py-5" placeholder="CVV" type="text"/>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <aside class="lg:col-span-5 lg:sticky lg:top-32 bg-surface-container-low rounded-[3rem] p-8 lg:p-12 space-y-10">
+                <h3 class="text-3xl font-black tracking-tight">Order Summary</h3>
+                <div class="space-y-4 pt-6 border-t border-primary/5">
+                    <div class="flex justify-between font-bold"><span>Subtotal</span><span>€12.00</span></div>
+                    <div class="flex justify-between font-bold"><span>Shipping</span><span class="text-primary">FREE</span></div>
+                    <div class="flex justify-between text-3xl font-black pt-6"><span>Total</span><span>€12.00</span></div>
+                </div>
+                <button class="w-full bg-primary text-white py-6 rounded-full font-black text-xl shadow-2xl hover:-translate-y-1 transition-all">Complete Order</button>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

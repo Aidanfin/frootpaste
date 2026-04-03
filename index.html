@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Frootpaste | Refreshing Flavours</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Sniglet:wght@800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#8dc73f',
+                        'brand-green-darker': '#79b22d',
+                        'brand-dark-green': '#1a301a'
+                    },
+                    fontFamily: {
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                        sniglet: ['Sniglet', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        @keyframes wordFadeInBouncy {
+            from { opacity: 0; transform: translateY(30px) scale(0.85); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-slide-down { animation: slideInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes slideInDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .header-logo { animation-delay: 0.1s; opacity: 0; }
+        .header-cart { animation-delay: 0.2s; opacity: 0; }
+        .word-reveal { display: inline-block; opacity: 0; animation: wordFadeInBouncy 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-play-state: paused; }
+        .subheading-reveal { opacity: 0; animation: wordFadeInBouncy 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-play-state: paused; }
+        .reveal-on-scroll { opacity: 0; transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: translateY(60px); will-change: transform, opacity; }
+        .reveal-on-scroll.active { opacity: 1; transform: translateY(0); }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        .floating-product { animation: float 5s ease-in-out infinite; }
+        @keyframes fallAndRotate {
+            0% { transform: translateY(-140px) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+        .falling-shape { position: fixed; top: -140px; pointer-events: none; z-index: 0; animation: fallAndRotate linear infinite; will-change: transform, opacity; }
+    </style>
+</head>
+<body class="bg-white text-zinc-900 font-body antialiased overflow-x-hidden relative">
+    <div class="fixed inset-0 pointer-events-none z-0" id="bg-animation-container"></div>
+    
+    <header class="fixed top-0 left-0 right-0 z-50 p-6 pointer-events-none">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="header-logo animate-slide-down bg-white/80 backdrop-blur-md px-8 h-14 w-fit flex items-center justify-center rounded-full shadow-lg pointer-events-auto border border-brand-green/10">
+                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="70 45 260 85" class="h-[85%] w-auto">
+                    <defs>
+                        <style>
+                            .st0, .st1, .st2 { isolation: isolate; }
+                            .st0, .st2 { font-family: 'Sniglet', cursive; font-weight: 800; fill: #1a301a; }
+                            .st3 { fill: #8dc73f; }
+                            .st4 { fill: #41b8ea; }
+                            .st2 { letter-spacing: -.02em; }
+                        </style>
+                    </defs>
+                    <g class="st1">
+                        <text class="st0" transform="translate(73.42 99.23)" font-size="44"><tspan x="0" y="0" xml:space="preserve">fr   </tspan></text>
+                        <text class="st2" transform="translate(173.54 99.23)" font-size="44"><tspan x="0" y="0">t</tspan></text>
+                        <text class="st0" transform="translate(199.66 99.23)" font-size="44"><tspan x="0" y="0">pas</tspan></text>
+                        <text class="st0" transform="translate(278.9 99.23)" font-size="44"><tspan x="0" y="0">t</tspan></text>
+                        <text class="st0" transform="translate(305.42 99.23)" font-size="44"><tspan x="0" y="0">e</tspan></text>
+                    </g>
+                    <rect class="st4" x="123.67" y="77.32" width="20.72" height="20.72" rx="4" ry="4" transform="translate(28.55 208.21) rotate(-82)"/>
+                    <rect class="st4" x="149.72" y="77.32" width="20.72" height="20.72" rx="4" ry="4" transform="translate(50.98 233.99) rotate(-82)"/>
+                    <path class="st3" d="M141.3,68.05h3.9v3.9c0,1.74-1.42,3.16-3.16,3.16h-1.53c-1.31,0-2.37-1.06-2.37-2.37v-1.53c0-1.74,1.42-3.16,3.16-3.16Z"/>
+                </svg>
+            </div>
+            <div class="header-cart animate-slide-down relative pointer-events-auto">
+                <a href="checkout.html" class="block">
+                    <button class="w-14 h-14 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-brand-green shadow-lg border border-brand-green/10 hover:scale-105 transition-transform" id="cart-icon-btn">
+                        <span class="material-symbols-outlined text-3xl">shopping_bag</span>
+                        <span class="absolute -top-1 -right-1 bg-brand-green text-white text-[10px] font-black w-6 h-6 rounded-full flex items-center justify-center scale-0 transition-transform duration-300" id="cart-badge">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <section class="relative flex overflow-hidden bg-transparent items-center pt-16 md:pt-8 min-h-[80vh] reveal-on-scroll" id="hero-section">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center">
+                <div class="relative flex justify-center items-center order-1 md:order-2">
+                    <img alt="Bubbly Orchard Product" class="floating-product relative z-10 w-full h-auto max-w-[448px] md:max-w-none object-contain transition-transform duration-700" src="images/gif3.gif"/>
+                </div>
+                <div class="space-y-6 md:space-y-8 z-10 text-center md:text-left order-2 md:order-1 pt-4 pb-12 md:py-12" id="hero-headline-container">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-zinc-900 leading-[0.85] tracking-tighter">
+                        <span class="word-reveal" style="animation-delay: 0.1s;">Fruity</span>
+                        <span class="word-reveal text-[#FFD700]" style="animation-delay: 0.25s;">fun</span>
+                        <br/>
+                        <span class="word-reveal" style="animation-delay: 0.4s;">for</span>
+                        <br/>
+                        <span class="word-reveal" style="animation-delay: 0.55s;">tiny</span>
+                        <span class="word-reveal" style="animation-delay: 0.7s;">teeth.</span>
+                    </h1>
+                    <p class="text-lg md:text-2xl text-zinc-600 max-w-md mx-auto md:mx-0 leading-relaxed font-medium subheading-reveal" style="animation-delay: 1.5s;">
+                        No more yucky chemicals! Turn brush time into playtime with tasty fruit flavors and magical, fizzy bubbles
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-transparent reveal-on-scroll" id="flavors">
+            <div class="container mx-auto px-6">
+                <div class="mb-12 md:mb-16 text-center md:text-left">
+                    <h2 class="text-5xl font-bold text-zinc-900 tracking-tighter">Our Flavours</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="reveal-on-scroll group relative overflow-hidden rounded-[3rem] bg-[#FF4F6E] p-8 md:p-10 flex flex-col items-start transition-all duration-500 hover:shadow-2xl hover:shadow-[#FF4F6E]/30 min-h-[500px]">
+                        <div class="w-full flex justify-center mb-8 transform group-hover:scale-110 transition-transform duration-500">
+                            <img alt="Watermelon Flavour" class="h-64 md:h-80 w-auto object-contain drop-shadow-2xl" src="images/watermelonphoto.png"/>
+                        </div>
+                        <div class="space-y-4 text-white text-left w-full mt-auto">
+                            <h3 class="text-3xl md:text-4xl font-bold tracking-tight">Watermelon</h3>
+                            <p class="text-white/90 text-base md:text-lg font-medium">Summer in a bottle. Crisp, sweet, and perfectly bubbly.</p>
+                            <div class="flex items-center justify-between w-full pt-4 gap-2 h-20">
+                                <span class="text-xl md:text-3xl font-bold whitespace-nowrap">€6.00</span>
+                                <button class="add-to-cart-btn bg-white text-[#FF4F6E] px-4 md:px-8 py-4 rounded-full font-bold text-sm md:text-base hover:bg-opacity-90 transition-all flex items-center gap-2 whitespace-nowrap active:scale-95">
+                                    <span class="material-symbols-outlined text-xl">shopping_cart</span> 
+                                    <span class="btn-text">Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal-on-scroll group relative overflow-hidden rounded-[3rem] bg-[#FF8C00] p-8 md:p-10 flex flex-col items-start transition-all duration-500 hover:shadow-2xl hover:shadow-[#FF8C00]/30 min-h-[500px]">
+                        <div class="w-full flex justify-center mb-8 transform group-hover:scale-110 transition-transform duration-500">
+                            <img alt="Orange Flavour" class="h-64 md:h-80 w-auto object-contain drop-shadow-2xl" src="images/orangephoto.png"/>
+                        </div>
+                        <div class="space-y-4 text-white text-left w-full mt-auto">
+                            <h3 class="text-3xl md:text-4xl font-bold tracking-tight">Orange</h3>
+                            <p class="text-white/90 text-base md:text-lg font-medium">Zesty citrus burst with a refreshing mineral finish.</p>
+                            <div class="flex items-center justify-between w-full pt-4 gap-2 h-20">
+                                <span class="text-xl md:text-3xl font-bold whitespace-nowrap">€6.00</span>
+                                <button class="add-to-cart-btn bg-white text-[#FF8C00] px-4 md:px-8 py-4 rounded-full font-bold text-sm md:text-base hover:bg-opacity-90 transition-all flex items-center gap-2 whitespace-nowrap active:scale-95">
+                                    <span class="material-symbols-outlined text-xl">shopping_cart</span> 
+                                    <span class="btn-text">Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 px-6 bg-transparent reveal-on-scroll">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-brand-green-darker rounded-[3rem] p-12 md:p-24 text-center flex flex-col items-center justify-center shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+                    <h2 class="font-headline text-4xl md:text-7xl font-bold text-white mb-12 tracking-tight leading-tight">Ready to ditch<br/>the tube?</h2>
+                    <button class="bg-white text-brand-green-darker px-10 py-5 rounded-full font-black text-xl md:text-2xl hover:bg-opacity-90 transition-all shadow-lg active:scale-95 mb-8" onclick="document.getElementById('flavors').scrollIntoView({ behavior: 'smooth' });">Shop Now</button>
+                    <p class="text-white/90 font-medium text-lg">Free shipping on your first box!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full rounded-t-[4rem] bg-[#8dc73f]/10 relative z-10 flex flex-col md:flex-row justify-between items-center px-12 py-16 text-sm font-medium">
+        <div>
+            <span class="font-black text-brand-green text-2xl tracking-tighter">Frootpaste</span>
+            <p class="mt-2 text-zinc-500 opacity-70">© 2026 Frootpaste. Made for smiles.</p>
+        </div>
+        <div class="flex gap-12 mt-8 md:mt-0 text-brand-green opacity-70">
+            <a href="#" class="hover:opacity-100">Privacy</a>
+            <a href="#" class="hover:opacity-100">Terms</a>
+            <a href="#" class="hover:opacity-100">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Background Animation
+            const bgContainer = document.getElementById('bg-animation-container');
+            const colors = ['#FF4F6E', '#FF8C00', '#8dc73f', '#FFD700', '#c6e7ff'];
+            const isMobile = window.innerWidth < 768;
+            const shapeCount = isMobile ? 15 : 30;
+
+            function createShape() {
+                const shape = document.createElement('div');
+                shape.className = 'falling-shape';
+                let size = Math.floor(Math.random() * 50) + 50;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.transform = `translateX(-50%)`; 
+                shape.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.borderRadius = '1.5rem';
+                shape.style.animationDuration = `${Math.random() * 15 + 15}s`;
+                shape.style.animationDelay = `-${Math.random() * 30}s`;
+                bgContainer.appendChild(shape);
+            }
+            for (let i = 0; i < shapeCount; i++) createShape();
+
+            // Observers
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('.word-reveal, .subheading-reveal').forEach(el => el.style.animationPlayState = 'running');
+                    }
+                });
+            }, { threshold: 0.5 });
+            const heroTarget = document.getElementById('hero-headline-container');
+            if (heroTarget) heroObserver.observe(heroTarget);
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.25 });
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+            // Cart Interaction
+            let cartCount = 0;
+            const badge = document.getElementById('cart-badge');
+            
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    cartCount++;
+                    badge.innerText = cartCount;
+                    badge.classList.remove('scale-0');
+                    badge.classList.add('scale-100');
+
+                    const textSpan = this.querySelector('.btn-text');
+                    const iconSpan = this.querySelector('.material-symbols-outlined');
+                    const originalText = textSpan.innerText;
+                    const originalIcon = iconSpan.innerText;
+
+                    // Stays white, just changes text/icon
+                    textSpan.innerText = "Added ✓";
+                    iconSpan.innerText = "check_circle";
+
+                    setTimeout(() => {
+                        textSpan.innerText = originalText;
+                        iconSpan.innerText = originalIcon;
+                    }, 2000);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
